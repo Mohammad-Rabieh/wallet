@@ -15,7 +15,16 @@ tar -xvf fpc-3.0.2.x86_64-linux.tar
 cd fpc-3.0.2.x86_64-linux  
 ./install.sh
   ```
-3. Build `OpenSSL`
+  
+3. updating the `g++ compiler`
+ 
+ ```bash
+sudo apt-get install g++
+ ```
+
+
+  
+4. Build `OpenSSL`
 
   Download latest available OpenSSL 1.1.x source code [https://www.openssl.org/source/](https://www.openssl.org/source/)  (ex.: `openssl-1.1.0e.tar.gz`)
 
@@ -26,7 +35,7 @@ cd openssl-1.1.0e.tar.gz
 make install
   ```
 
-4. Install `lazarus` package
+5. Install `lazarus` package
 
   ```bash
 sudo apt-get install lazarus
@@ -36,20 +45,20 @@ sudo apt-get install lazarus
 sudo apt-get install fp-units-fcl
   ```
 
-5. Get latest release at [https://github.com/PascalLite/wallet/releases](https://github.com/PascalLite/wallet/releases) or checkout bleeding edge development version of PascalLite's `master`
+6. Get latest release at [https://github.com/PascalLite/wallet/releases](https://github.com/PascalLite/wallet/releases) or checkout bleeding edge development version of PascalLite's `master`
   ```bash
   git clone https://github.com/PascalLite/wallet
   ```
-6. Change to the root of the source code directory, copy `libcrypto.so.1.1` from step 3, build PascalLite daemon
+7. Change to the root of the source code directory, copy `libcrypto.so.1.1` from step 3, build PascalLite daemon
 
   ```bash
 cd wallet  
 cp <OPENSSL_FOLDER>/output/lib/libcrypto.so.1.1 .  
 fpc -FuUnits/PascalCoin/ -FuSynapse/lib/ -FuUnits/Utils/ pascallited.pp
   ```
-7. Run PascalLite daemon in background
+8. Run PascalLite daemon in background
 
   ```bash
 nohup ./pascallited -r &
   ```
-8. Configure daemon settings in `~/PascalLite/pascallite.ini`
+9. Configure daemon settings in `~/PascalLite/pascallite.ini`
